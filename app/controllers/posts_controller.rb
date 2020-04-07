@@ -12,7 +12,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    new_post = Post.new(user_id: current_user.id, content: params[:content])
+    new_post = Post.new(user_id: current_user.id,
+                        content: params[:content],
+                        image: params[:image])
     if new_post.save
       redirect_to root_path
     else
